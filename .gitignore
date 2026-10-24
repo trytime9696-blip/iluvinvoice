@@ -6,8 +6,7 @@ backups/
 .env.*
 !.env.example
 *.log
-*.bak
-*.bak-*
+*.bak*
 *.backup*
 ._*
 .DS_Store

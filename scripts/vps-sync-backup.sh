@@ -16,8 +16,7 @@ rsync -rlptD --delete \
   --exclude='db/' \
   --exclude='backups/' \
   --exclude='*.log' \
-  --exclude='*.bak' \
-  --exclude='*.bak-*' \
+  --exclude='*.bak*' \
   --exclude='*.backup*' \
   --exclude='._*' \
   "$LIVE_DIR/" "$REPO_DIR/"
