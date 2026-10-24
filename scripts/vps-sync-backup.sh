@@ -4,8 +4,11 @@ set -euo pipefail
 LIVE_DIR=/root/setubooks-site
 REPO_DIR=/root/iluvinvoice-backup
 
-rsync -a --delete \
+rsync -rlptD --delete \
   --exclude='.git/' \
+  --exclude='.gitignore' \
+  --exclude='.env.example' \
+  --exclude='scripts/' \
   --exclude='.env' \
   --exclude='.env.*' \
   --exclude='node_modules/' \
