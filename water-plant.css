@@ -145,6 +145,21 @@ dialog::backdrop{background:rgba(7,23,17,.48)}
 .gst-switch small{color:var(--muted)}
 .month-grid-wrap{overflow:auto;max-height:calc(100vh - 225px)}
 .month-grid{min-width:1450px}
+.monthly-register .month-grid{width:max-content;min-width:100%}
+.attendance-toolbar{flex-wrap:wrap;justify-content:space-between;gap:10px}
+.attendance-title small{display:block;margin-top:4px;color:var(--muted)}
+.attendance-controls{display:flex;align-items:end;gap:8px;flex-wrap:wrap}
+.attendance-controls label{display:grid;gap:4px;color:var(--muted);font-size:11px;font-weight:700}
+.attendance-controls input{height:35px;min-width:130px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);padding:5px 7px;font-size:12px}
+.attendance-exit{display:none}
+body.attendance-focus{overflow:hidden}
+body.attendance-focus .shell{display:block}
+body.attendance-focus .sidebar,body.attendance-focus .topbar,body.attendance-focus .mobile-nav,body.attendance-focus .content>:not(.monthly-register){display:none!important}
+body.attendance-focus .content{padding:0;max-width:none}
+body.attendance-focus .monthly-register{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;border:0;border-radius:0}
+body.attendance-focus .month-grid-wrap{flex:1;min-height:0;max-height:none;overscroll-behavior:contain}
+body.attendance-focus .attendance-expand{display:none}
+body.attendance-focus .attendance-exit{display:inline-flex}
 .month-grid th,.month-grid td{padding:5px;text-align:center}
 .month-grid th{position:sticky;top:0;z-index:2}
 .month-grid .sticky-customer{position:sticky;left:0;text-align:left;z-index:3;min-width:170px;max-width:170px;background:#f6f8f7}
@@ -160,9 +175,15 @@ dialog::backdrop{background:rgba(7,23,17,.48)}
 .month-total{position:sticky;right:118px;z-index:3;min-width:74px;font-weight:800;background:#f4f7f5;box-shadow:-2px 0 0 #dde5e0}
 .month-grid thead .month-total{z-index:4}
 @media(max-width:760px){
+  .attendance-toolbar{padding:10px;align-items:flex-start}
+  .attendance-controls{width:100%;gap:6px}
+  .attendance-controls label{flex:1 1 115px}
+  .attendance-controls input{width:100%;min-width:0}
+  .attendance-controls .btn{padding:8px;font-size:11px}
   .month-grid-wrap{max-height:calc(100vh - 205px);overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-  .month-grid{min-width:max-content}
+  .month-grid{min-width:100%}
   .month-grid .sticky-customer{min-width:118px;max-width:118px}
+  body.attendance-focus .month-grid .sticky-customer{position:sticky;left:0;z-index:3}
   .month-grid .pending-col,.month-total{position:static;min-width:104px;box-shadow:none}
   .month-grid th,.month-grid td{padding:5px 4px}
   .month-cell{min-width:52px}
