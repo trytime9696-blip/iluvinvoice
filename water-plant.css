@@ -254,3 +254,10 @@ body.attendance-focus .attendance-exit{display:inline-flex}
 @media print{@page{size:A4;margin:0}.ref-water-invoice{break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}.ref-water-invoice:last-child{break-after:auto;page-break-after:auto}.ref-water-card,.ref-water-head,.ref-water-stats>div,.ref-cal-day,.ref-payable,.ref-jars{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .ref-water-bottom{display:grid;grid-template-columns:1.12fr .95fr;gap:5mm;margin-top:7mm;align-items:start}.ref-water-bottom.no-upi{display:block}.ref-water-bottom .ref-water-notes{margin-top:4mm;padding-left:1mm}.ref-upi-card{border:1.5px solid #087255;border-radius:4mm;padding:4mm 5mm 3mm;box-sizing:border-box;min-height:58mm}.ref-upi-card h3{font-size:8pt;color:#006949;letter-spacing:.16em;margin:0 0 3mm}.ref-upi-row{display:flex;gap:5mm;align-items:flex-start}.ref-upi-image img{width:39mm;height:39mm;object-fit:contain}.ref-upi-details{display:flex;flex-direction:column;min-width:0}.ref-upi-details small{font-size:7pt;color:#6b7b80;margin-top:2mm}.ref-upi-details small:first-child{margin-top:0}.ref-upi-details strong{font-size:14pt;color:#075d43}.ref-upi-details b,.ref-upi-details span{font-size:8pt;overflow-wrap:anywhere}.ref-upi-card p{font-size:7pt;color:#6b7b80;margin:1mm 0 0}.ref-water-summary .ref-payable{margin-bottom:0}
 
+
+/* workspace switcher */
+.ws-switch{display:inline-flex;padding:4px;border-radius:12px;background:var(--bg);border:1px solid var(--line);gap:2px;align-self:center}
+.ws-switch a{padding:7px 12px;border-radius:9px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:background-color .2s,color .2s}
+.ws-switch a:hover{color:var(--ink)}
+.ws-switch a.active{background:var(--white);color:var(--green);box-shadow:0 2px 8px rgba(7,40,30,.08)}
+@media(max-width:760px){.ws-switch a{padding:6px 8px;font-size:12px}}
