@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /app
+Disallow: /water-plant
+Disallow: /start
+Disallow: /login
+Disallow: /signup
 Sitemap: https://iluvinvoice.net/sitemap.xml

@@ -1,4 +1,22 @@
-# iluvinvoice.net Books — GST invoicing workspace
+# iluvinvoice.net Books — GST invoicing + RO Water Plant billing
+
+## Upgrade — October 2026 (what changed)
+
+- **New homepage** (`landing.html`, `assets/home.css`, `assets/home.js`): animated 3D invoice that builds itself, cursor tilt on desktop, scroll story (GST engine → invoice types → templates → UPI QR → water register turning into a monthly bill → reports → pricing → FAQ). Self-hosted fonts in `assets/fonts/`. Respects "reduce motion". No external scripts (CSP stays `script-src 'self'`).
+- **Workspace chooser** at `/start` after login, plus a General / Water Plant switcher and Sign out in both apps.
+- **General invoicing:** Free limit now counts invoices dated in the current month; the fake "Preview Pro" unlock is removed (payment is NOT CONFIGURED); Settings has Backup download / Restore from file; installable PWA (`app-manifest.json`, `app-sw.js` caches only the app shell, never data).
+- **Water Plant:** unique bill number per customer per month (kept the same when bills are refreshed); changing a customer's rate no longer re-prices older deliveries; Generate All Bills snapshots discount/GST; Restore backup in Settings.
+- **Server security:** same-origin JSON required for every state-changing API call (CSRF), per-email login rate limit, input length checks, Water Plant data shape validation, atomic writes, HSTS / X-Frame-Options / COOP headers, `private, no-store` on signed-in pages, `DATA_DIR` env support.
+- **SEO:** canonical + Open Graph + Twitter tags on public pages, `assets/og-image.png`, Organization/WebSite/SoftwareApplication/FAQPage structured data (no ratings or reviews), new guides `/blog/cgst-sgst-vs-igst` and `/blog/water-jar-monthly-bill-format`, updated `sitemap.xml` and `robots.txt`.
+- **Tests:** `npm test` runs GST engine tests (`domain/gst-engine.test.js`) and server security/isolation tests (`tests/server.test.mjs`, uses a temporary data folder — never your real `data/`).
+
+### Still true / known limits
+- General invoicing data is stored in the browser (localStorage) — **not cloud-synced**. The Free 10-invoices/month limit therefore can't be enforced on the server yet (planned with Phase 2 server storage).
+- Pro purchase is not available (no payment provider connected).
+- The VPS backup job (`scripts/vps-sync-backup.sh`) pushes the live folder to `main`. After this upgrade is pushed, that job's push will be rejected until the VPS copy is updated — deploy or pull this code on the VPS before the next backup run.
+
+---
+
 
 A polished, responsive India-first invoicing frontend and deploy-oriented technical foundation. The brand in the brief was a placeholder (`[BRAND NAME]`), so this build uses **iluvinvoice.net** throughout.
 
