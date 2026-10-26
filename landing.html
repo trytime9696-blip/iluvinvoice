@@ -20,7 +20,7 @@
 <link rel="icon" href="/favicon.svg">
 <link rel="preload" href="/assets/fonts/bricolagegrotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/home.css?v=20261026-1">
+<link rel="stylesheet" href="/assets/home.css?v=20261026-2">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://iluvinvoice.net/#org","name":"iluvinvoice.net","url":"https://iluvinvoice.net/","logo":"https://iluvinvoice.net/logo.svg"},{"@type":"WebSite","@id":"https://iluvinvoice.net/#site","url":"https://iluvinvoice.net/","name":"iluvinvoice.net","publisher":{"@id":"https://iluvinvoice.net/#org"}},{"@type":"SoftwareApplication","name":"iluvinvoice.net","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://iluvinvoice.net/","description":"GST and non-GST invoicing with CGST/SGST/IGST calculation, UPI QR and print-to-PDF, plus RO water plant jar tracking and monthly billing.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR","name":"Free plan"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is iluvinvoice.net free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Free plan lets you create up to 10 invoices a month. Pro is shown on the pricing section but purchasing is not enabled yet."}},{"@type":"Question","name":"Does it calculate CGST, SGST and IGST automatically?","acceptedAnswer":{"@type":"Answer","text":"Yes. When your state and the place of supply are the same, tax is split into CGST and SGST. When they differ, IGST is applied. You can also make invoices without GST."}},{"@type":"Question","name":"Does the UPI QR confirm payments automatically?","acceptedAnswer":{"@type":"Answer","text":"No. The QR opens the customer's UPI app with your UPI ID, amount and invoice number filled in. You confirm receipt and mark the invoice paid yourself."}},{"@type":"Question","name":"Does iluvinvoice.net file GST returns?","acceptedAnswer":{"@type":"Answer","text":"No. It helps you prepare invoices and keep billing records. GST return filing, e-invoice IRN and e-way bills are not included."}},{"@type":"Question","name":"Where is my data stored?","acceptedAnswer":{"@type":"Answer","text":"Water Plant data is saved to your account on the server. General invoicing data is currently saved in your browser on this device, so download a backup regularly."}}]}]}</script>
 </head>
 <body class="home">
@@ -33,7 +33,7 @@
   <nav class="nav-links" aria-label="Main">
     <a href="#general" data-testid="nav-features">Invoicing</a>
     <a href="#gst" data-testid="nav-gst">GST</a>
-    <a href="#templates" data-testid="nav-templates">Templates</a>
+    <a href="#samples" data-testid="nav-samples">Samples</a>
     <a href="#water" data-testid="nav-water">Water Plant</a>
     <a href="#pricing" data-testid="nav-pricing">Pricing</a>
     <a href="/blog" data-testid="nav-guides">Guides</a>
@@ -208,6 +208,28 @@
   </div>
 </section>
 
+<section class="sec samples" id="samples" data-testid="section-sample-gallery">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Sample gallery</p>
+      <h2>10 real-looking invoices, 10 different businesses.</h2>
+      <p>Every number below is calculated the way the app does it, in exact paise. Tap any invoice to see it full size. All names, GSTINs and amounts are sample data.</p>
+    </div>
+    <div class="seg seg-light" role="tablist" aria-label="Filter samples" data-sample-filter>
+      <button role="tab" aria-selected="true" data-f="all" data-testid="samples-filter-all">All</button>
+      <button role="tab" aria-selected="false" data-f="gst" data-testid="samples-filter-gst">With GST</button>
+      <button role="tab" aria-selected="false" data-f="nogst" data-testid="samples-filter-nogst">Without GST</button>
+      <button role="tab" aria-selected="false" data-f="notes" data-testid="samples-filter-notes">Notes &amp; challans</button>
+      <button role="tab" aria-selected="false" data-f="water" data-testid="samples-filter-water">Water Plant</button>
+    </div>
+    <div class="sample-grid" data-sample-grid data-testid="sample-grid"></div>
+  </div>
+  <dialog class="sample-modal" data-sample-modal data-testid="sample-modal" aria-label="Sample invoice preview">
+    <div class="sample-modal-bar"><b data-sample-title></b><div><a class="btn btn-sm btn-glow" href="/signup" data-sample-cta data-testid="sample-modal-create-btn">Create one like this</a><button class="sample-close" data-sample-close aria-label="Close" data-testid="sample-modal-close-btn">×</button></div></div>
+    <div class="sample-modal-body" data-sample-body></div>
+  </dialog>
+</section>
+
 <section class="sec" id="upi" data-testid="section-upi">
   <div class="wrap split rev">
     <div class="sec-copy" data-reveal>
@@ -345,6 +367,7 @@
   </div>
   <p class="wrap foot-copy">© 2026 iluvinvoice.net · iluvinvoice does not file GST returns or generate e-invoice IRNs.</p>
 </footer>
-<script src="/assets/home.js?v=20261026-1" defer></script>
+<script src="/assets/home.js?v=20261026-2" defer></script>
+<script src="/assets/samples.js?v=1" defer></script>
 </body>
 </html>
