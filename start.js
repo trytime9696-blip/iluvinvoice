@@ -1,0 +1,2 @@
+fetch('/api/me').then(r => r.json()).then(j => { if (!j.user) { location.href = '/login'; return; } document.querySelector('[data-name]').textContent = `, ${j.user.name.split(' ')[0]}`; }).catch(() => {});
+document.querySelector('[data-logout]').addEventListener('click', () => fetch('/api/logout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }).finally(() => { location.href = '/'; }));

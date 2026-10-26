@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050b1f">
+<title>Choose your workspace — iluvinvoice.net</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/start.css?v=1">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i></div>
+<main class="start">
+  <a class="brand" href="/">iluvinvoice<i>.net</i></a>
+  <h1 data-testid="start-greeting">Welcome<span data-name></span>. Where do you want to work today?</h1>
+  <p class="sub">Two separate workspaces, one account. Their data never mixes — switch any time from the top bar.</p>
+  <div class="cards">
+    <a class="card" href="/app" data-testid="start-general-card">
+      <span class="tag">General invoicing</span>
+      <h2>GST &amp; non-GST invoices</h2>
+      <p>Business profile, customers, products, tax invoices, quotations, credit notes, payments and reports.</p>
+      <small>Saved in this browser · download backups from Settings</small>
+      <b>Open General →</b>
+    </a>
+    <a class="card card-water" href="/water-plant" data-testid="start-water-card">
+      <span class="tag">RO Water Plant</span>
+      <h2>Daily jars &amp; monthly bills</h2>
+      <p>Jar register, returns, payments, inventory, Generate All Bills and reports.</p>
+      <small>Saved to your account on the server</small>
+      <b>Open Water Plant →</b>
+    </a>
+  </div>
+  <button class="signout" data-logout data-testid="start-logout-btn">Sign out</button>
+</main>
+<script src="/start.js" defer></script>
+</body>
+</html>

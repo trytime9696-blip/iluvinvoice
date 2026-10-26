@@ -1,0 +1,5 @@
+// App shell only. Financial data is never cached: it lives in localStorage (general) or behind /api (water plant).
+const CACHE='iluv-app-v1',SHELL=['/styles.css','/app.js','/domain/gst.js','/domain/payment.js','/logo.svg','/favicon.svg'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x.startsWith('iluv-app-')&&x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==location.origin||u.pathname.startsWith('/api/'))return;if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>new Response('<h1>You are offline</h1><p>Reconnect to open iluvinvoice.net.</p>',{headers:{'Content-Type':'text/html'}})));return}if(SHELL.includes(u.pathname))e.respondWith(fetch(e.request).then(r=>{const c=r.clone();caches.open(CACHE).then(x=>x.put(e.request,c));return r}).catch(()=>caches.match(e.request)))});

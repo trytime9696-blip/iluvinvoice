@@ -67,3 +67,15 @@ body.dark{--bg:#111a16;--surface:#19231e;--surface-2:#202b25;--text:#e6eee9;--mu
 .reference-invoice:has(.ref-items tbody tr:first-child:nth-last-child(-n+3)) .ref-bank{min-height:110px;padding:14px 16px}
 .reference-invoice:has(.ref-items tbody tr:first-child:nth-last-child(-n+3)) .ref-qr img{width:72px;height:72px}
 .reference-invoice:has(.ref-items tbody tr:first-child:nth-last-child(-n+3)) .ref-terms{min-height:58px;margin-top:5%;padding:12px 15px}
+
+/* workspace switcher + backup */
+.ws-switch{display:inline-flex;padding:4px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);gap:2px;flex:none}
+.ws-switch a{padding:7px 12px;border-radius:9px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:background-color .2s,color .2s}
+.ws-switch a:hover{color:var(--text)}
+.ws-switch a.active{background:var(--surface);color:var(--green);box-shadow:var(--shadow-sm)}
+body.dark .ws-switch{background:rgba(255,255,255,.05)}body.dark .ws-switch a.active{background:rgba(255,255,255,.1);color:#fff}
+.backup-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.backup-actions label{cursor:pointer}
+@media(max-width:760px){.ws-switch a{padding:6px 9px;font-size:12px}.topbar .search-box{display:none}}
+@media(max-width:760px){.topbar .crumbs,.topbar [data-action=notifications],.topbar [data-action=theme]{display:none}.topbar{gap:8px}.topbar .button-primary{padding-left:10px;padding-right:10px}}
+.main>.editor-page{margin:0!important}
